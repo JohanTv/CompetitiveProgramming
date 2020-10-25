@@ -9,14 +9,24 @@ typedef vector<int> vi;
 typedef vector<ll> vll;
 
 const int mxN = 1e5+5;
-// e -> parent, s -> node to process
-void dfs(int s, int e){
-  for(auto u : adj[s]){
-    if(u != e) dfs(u,s);
+vi adj[mxN];
+// p -> parent, x -> node to process
+void dfs(int x, int p){
+  for(auto u : adj[x]){
+    if(u == p) continue;
+    dfs(u,x);
   }
 }
 
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL),cout.tie(NULL);
+    ll n; cin >> n;
+    ll u,v;
+    for(int i=1; i<n; ++i){
+      cin>>u>>v;
+      adj[u].push_back(v);
+      adj[v].push_back(u);
+    }
+    dfs(1,0);
 }

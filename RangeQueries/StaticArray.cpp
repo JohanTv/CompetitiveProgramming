@@ -27,7 +27,7 @@ int main(){
     cin.tie(NULL),cout.tie(NULL);
     cin >> n >> q;
     REP(i,0,n) cin >> matrix[0][i];
-    preprocessing();/
+    preprocessing();
     ll a,b;
     while(q--){
       cin >> a >> b;
